@@ -81,6 +81,9 @@ ruby: brew
 
 rust: brew
 	brew install rust
+  
+go: brew
+	brew install go@1.18
 
 brew-packages: brew
 	brew bundle --file=$(DOTFILES_DIR)/install/Brewfile || true
@@ -96,6 +99,9 @@ node-packages: npm
 
 rust-packages: rust
 	cargo install $(shell cat install/Rustfile)
+  
+go-packages: go
+	go install $(shell cat install/Gofile)
 
 test:
 	eval $$(fnm env); bats test
